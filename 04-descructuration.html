@@ -1,0 +1,126 @@
+<!-- 04-descructuration.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let a = {
+            nom : "Alain",
+            adresse : {
+                rue : "75 rue du Paradis",
+                cp : 75014,
+                ville : "Paris"
+            },
+            info : function(){
+                console.log("je suis une méthode");
+            }
+        }
+
+        a.nom ;
+        a.adresse.ville; 
+        a.info();
+
+        // destructuration l'objet a pour récupérer deux propriétés 
+        let { nom , info } = a ; // a est OBLIGATOIREMENT un objet littéral ou un JSON => transformé en objet littéral
+        // let nom = a.nom ;
+        // let info = a.info ;
+        console.log(nom);
+        console.log(a.nom);
+
+        let b = {x : 1 , c : 3 };
+        let bJSON = JSON.stringify(b); // bJSON = "{\"x\" : 1 , \"c\" : 3 }"
+        console.log(bJSON); // 
+        console.log(typeof(bJSON)) // string 
+        let {x} = bJSON; // "{\"x\" : 1 , \"c\" : 3 }"
+        console.log(x); // undefined
+
+        // inverse JSON => objet littéral JSON.parse()
+
+        let bObjet = JSON.parse(bJSON);
+        console.log(bObjet);
+        const { c } = bObjet;
+        console.log(c);
+
+
+        let person = {
+            adresse : {
+                rue : "75 rue du Paradis",
+                cp : 75014,
+                ville : "Paris"
+            }
+        }
+        person.adresse.rue;
+        person.adresse.cp;
+        person.adresse.ville;
+
+        console.log( `j'habite ${person.adresse.rue} ${person.adresse.cp} ${person.adresse.ville}`);
+
+        let { rue, cp , ville } = person.adresse ;
+
+        console.log( `j'habite ${rue} ${cp} ${ville}`); // Alias // raccourci 
+
+        // fonction qui prend comme paramètre un objet 
+
+        function calcul (rectangle){ //objet 
+            console.log(rectangle.largeur * rectangle.hauteur)
+        }
+        // exécuter la fonction argument un objet 
+
+        calcul({largeur : 10 , hauteur : 20});
+
+        // fonction qui prend comme paramètre une descruturation d' objet 
+        function calcul2 ({largeur, hauteur}){ // contrat impose au minimum 
+            console.log(largeur * hauteur);
+            // si je descructure directement dans les paramètres de la déclaration de la fonction
+            // j'ai juste besoin d'utiliser les noms des propriétés 
+        }
+        let rectangle = {largeur : 5 , hauteur : 20};
+        calcul2(rectangle); // rectangle
+
+        let carre = {largeur: 2, hauteur : 2}
+        calcul2(carre); // carré
+
+        let losange = { largeur : 10 , diagonale : 20 }
+        calcul2(losange); // NaN // 10 * undefined
+        // Typescript => Erreur avant la compilation 
+        // Mais en js de base tranforme ce qu'il n'a pas en undefined 
+
+        let carre2 = {largeur: 4, hauteur : 4};// typage dynamique 
+        calcul2(carre2); // carré
+
+        // il est aussi possible de descructurer des array 
+
+        let jours = ["lundi", "mardi", "mercredi"];
+
+        console.log(jours[0]); // lundi
+        console.log(jours[2]); // mercredi
+
+        let [first , second, last ] = jours ;  // jours est OBLIGATOIREMENT un tableau javascript
+        /*
+            let first = jours[0] ;
+            let second = jours[1] ;
+            let last = jours[2] ;
+        */
+        console.log(first, second, last);
+
+        let [premier,,dernier] = jours; // lundi mardi mercredi
+        /*
+            let premier = jours[0] ;
+            let dernier = jours[2] ;
+        */
+        console.log(premier, dernier);// lundi mercredi
+
+        let matieres = ["js", "jquery", "ajax", "node", "react", "angular", "java"];
+        let [base, ...reste] = matieres // JS // desctructuration avec spread opérator 
+        // let base = matieres[0]
+        // let reste =  ["jquery", "ajax", "node", "react", "angular", "java"]
+
+        console.log(base, reste)
+    </script>
+</body>
+</html>
