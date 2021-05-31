@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const a = "bonjour" ;
+        const b = 20 ;
+        const c = {
+            formation : "javascript" ,
+            duree  : 5 ,
+            matiere : ["js", "ajax", "node", "jquery" ]
+        };
+
+        // concaténation 
+        /*
+            1 bonjour je suis une formation en javascript 
+            2 la durée de la formation est de 5 jours 
+            3 en javascript je vais voir les sujets suivants : ajax, node et jquery 
+        */
+       // méthode classique guillemet et le symbole + 
+        const phrase1 = a + " je suis une formation en " + c.formation ;
+        console.log(phrase1);
+        // méthode classique apostrophes et le symbole + 
+        const phrase2 = 'la durée de la formation est de ' + c.duree + ' jours';
+        console.log(phrase2);
+        // template string : `` et ${ } pour les variables 
+
+        const phrase3 = `en ${c.formation} je vais voir les sujets suivants : ${c.matiere[1]}, ${c.matiere[2]} et ${c.matiere[3]}`;
+        console.log(phrase3);
+
+        const phrase3bis = "en " + c.formation + " je vais voir les sujets suivants : " + c.matiere[1] + ", " + c.matiere[2] + " et " + c.matiere[3] ;
+        console.log(phrase3bis);
+
+
+    </script>
+</body>
+</html>
