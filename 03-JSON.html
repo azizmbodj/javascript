@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // objet // tableau en javascript 
+        // JSON : JavaScript Object Notation 
+
+        // variable qui ressemble beaucoup aux objects javascript 
+
+        let a = { // objet littéral classique en javascript 
+            largeur : 10 ,
+            hauteur : 12 ,
+            couleur : "#123456"
+        }
+
+        // vous pouvez transformer un objet javascript a en JSON :
+        // propriété doivent OBLIGATOIREMENT être entourée de " " pas de quote simple ou back tick
+        let aJSON = {
+            "largeur" : 10 ,
+            "hauteur" : 12 ,
+            "couleur" : "#123456"
+        }
+
+        let voiture = {
+            "marque": "peugeot",
+            "modele": 206,
+            "vendu" : true,
+            "annee" : 2019,
+            "options" : ["cuir", "abs", "radar recul"],
+            "proprietaire" : { "nom" : "moi" , "prenom" : "DOE"} ,
+            "description" : function(){}, // interdit 
+            "information" : "toto \n tata"
+        }
+
+        console.log(voiture.annee); 
+        // j'ai un objet javascript classique 
+        let b = {
+            annee : 2016,
+            tableau : ["lundi", "mardi", "mercredi"],
+            description : `infos
+                            une autre info
+                            conclusion
+                        ` 
+        };
+        // possible de transformer un objet classique (js) en un JSON 
+        // class JSON dispose de deux méthodes statiques : stringify
+        let bJSON = JSON.stringify( b ) ;
+        console.log(bJSON) 
+        /*
+        {"annee":2016,"tableau":["lundi","mardi","mercredi"],"description":"infos\n                            une autre info\n                            conclusion\n                        "}
+        */
+
+        let c = {
+            a : 12 ,
+            methode : function(){},
+            b : "toto",
+            methode2(){},
+            c : false
+        }
+
+        let cJSON = JSON.stringify(c);
+
+        console.log(cJSON) // {"a":12,"b":"toto","c":false}
+        // format de stockage de données que l'on va pouvoir partager entre deux machines 
+        // entre deux ordinateurs 
+        // quand on a des informations à envoyer entre deux machines => sur un réseau 
+        // les délimiteurs "" : { } => essentiels 
+
+        // API / WebServices // consommer dans des pages html en utilisant AJAX 
+        // NodeJS => json-server 
+        // for (){ } while(){}
+        // for in // for of
+        // tableau .map() .filter() .reduce() .forEach() .indexOf() 
+        // rdv 10h52 bon café
+    </script>
+</body>
+</html>
