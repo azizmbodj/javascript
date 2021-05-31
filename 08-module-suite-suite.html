@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="module">
+        import {a} from "./08-module2.js";
+        import * as $ from "./08-module.js"; 
+        import {a as A} from "./08-module.js"; // le ou les import doivent toujours être écrit au début de la balise script
+        import info from "./08-module3.js"
+        // syntaxe idéal quand tu veux importer 5 export présents dans le fichier 
+        // 08-module.js
+        // import {a,b,c,d} from "./08-module.js";
+        console.log(A); // 2
+        console.log($.a); // 2
+        /*
+        $ est un objet 
+        Object { a: 2, b: false, c: {}, d: d() }
+        */
+        window.console.log(a) // qui vient du fichier 08-module2.js // 30
+        console.log(info)
+    </script>
+</body>
+</html>

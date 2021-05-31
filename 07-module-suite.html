@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- ES6 il faut ajouter un nouveau attribut à la balise script l'attritbu module 
+    à partir du moment où cet attribut est présent dans la balise 
+        tout est local 
+    -->
+    <script type="module">
+        let a = 2;
+        console.log("premier module");
+        // tout le code est LOCAL => s'arrête avec la balise fermante script  
+    </script>
+    <script type="module">
+        function a (){
+            console.log("deuxieme module")
+        }
+        a();
+        // tout le code est LOCAL => s'arrête avec la balise fermante script  
+    </script>
+    <!--  appeler un fichier 07-toto.js externe avec le nouveau système => n'utilise plus l'attribut src -->
+    <script type="module">
+        // import lib from "07-toto.js";
+        import {a , calcul} from "./07-toto.js";
+        // importer toutes les variables exportées qui sont stockées dans le fichier 07-toto.js
+        // ./ dans le même dossier
+        // ../ dans le dossier parent
+        //  / racine du système (linux)
+        // console.log(lib);
+        /* lib = {
+            a : {
+                prenom : "Alain",
+                nom : "Dupont",
+                competences : ["js", "bricolage", "cuisine"]
+            },
+            calcul : function()(){
+                    return 2 + 3;
+            }
+        } 
+        */
+        console.log(a); // React // VueJS
+        // require == import (Angular) 
+        console.log(calcul()); // sinon calcul is not defined
+        // dans l'import avec la desctructuration il faut lui dire explicitement tout ce qu'il faut importer
+    </script>
+</body>
+</html>
