@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // créer des variables plusieurs mots clés possibles 
+        // var let const 
+        // var => dès la création du langage => 
+        // let et const 
+
+        // pourquoi utiliser let et const au lieu de var 
+
+        // var => recréer une variable et pas de message dans le console / navigateur 
+
+        var a = 2 ;
+        var a = "bonjour"; // la re création n'a pas entrainé de message d'erreur 
+        function a (){ } // réutilise la variable a pour nommer une fonction n'a pas entrainé de message d'erreur 
+
+        let b = 2 ; 
+        // ... 
+        // let b = "hello"; // SyntaxError: redeclaration of let b
+        // function b() {} // SyntaxError: redeclaration of let b
+
+        // portée de variable 
+        // pour certains mots clés du langage javascript for if while => la portée des variables est respectée 
+
+        for(let i = 0; i < 2 ; i++){
+            var c = "je suis une variable locale";
+        }
+        // console.log(c); // possible de récupérer la variable c et son contenu à l'extérieur de la boucle for 
+
+        for(let i = 0; i < 2 ; i++){
+            let d = "je suis une variable locale 2";
+        }
+        //console.log(d); // ReferenceError: d is not defined
+
+        // 5 grands types de variables 
+
+        // undefined sans affectation de valeur 
+        let e ; 
+        console.log(e) ; 
+        // varible numérique : number
+        let f = 1 ; 
+        let g = 1.2; 
+        let h = -1.4; 
+        console.log(f, g , h);
+
+        // chaine de caractère => string 
+        let i = "premier"; // guillemet double quote
+        let j = 'deuxième' ; // apostophes  simple quote
+        let k = `troisième`; // back tick quote inversée 
+
+        // boolean 
+        let l = false ;
+        let m = true ; 
+        let n = 20 > 2 ; // true
+        console.log(n);
+
+        // types avancés => objets 
+
+        // tableau (type d'objet)
+
+        let o = [1,2,3];
+        let p = [1, "lettre" , true , [1,2]]; // méthode 
+
+        // objets littéraux 
+        // javascript pas besoin de créer une class => instancer et créer un objet 
+        // en javascript il est possible de créer directement un objet sans avoir besoin de créer au préalable une class 
+
+        let q = { // dans un objet littéral, vous pouvez stocker deux types de membre
+            nom : "Alain",
+            age : 12,
+            isAdmin : false ,
+            capacite : ["creer article", "ajouter un user"],
+            adresse : { 
+                rue : "75 rue du Paradis",
+                ville : "Paris"
+            }, // propriété de l'objet 
+            action : function(){ // méthode : propriété qui stocke une fonction
+                console.log("je suis la méthode action"); // manière classque de créer un méthode
+            },
+            action2(){ // ES6 de créer une méthode (depuis 2015)
+                console.log("je suis la méthode action 2");
+            }
+        };
+
+        // utiliser ce qui est stocké dans l'objet q 
+        // manière classique 
+        console.log(q.nom);
+        q.action();
+
+        // utiliser la syntaxe des tableaux pour récupérer ou exécuter une propriété
+        let prop = "capacite" ;
+        console.log(q[prop]); // utilisation d'une syntaxe  de tableau 
+        let prop2 = "action2";
+        q[prop2]();
+
+    </script>
+</body>
+</html>
+<!-- 
+    dans le dossier jour1 , créer un nouveau fichier 02-exo.html 
+
+    dans ce fichier créer plusieurs variables :
+
+    a qui stocke la valeur "bonjour";
+
+    b qui stocke la valeur 20
+
+    c qui stocke un objet qui a les membres suivants :
+        formation  "javascript"
+        duree 5
+        matiere tableau des valeurs suivantes js, ajax node, jquery
+
+    Ecrire dans la console les textes suivants 
+
+    1 bonjour je suis une formation en javascript 
+    2 la durée de la formation est de 5 jours 
+    3 en javascript je vais voir les sujets suivants : ajax, node et jquery 
+
+-->
